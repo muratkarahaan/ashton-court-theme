@@ -1,0 +1,14 @@
+name: Deploy to cPanel
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger cPanel Git Pull
+        run: |
+          curl -s -o /dev/null -w "%{http_code}" \
+            "${{ secrets.CPANEL_DEPLOY_URL }}"
