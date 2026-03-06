@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/ashtoncourt/public_html/wp-content/themes/ashton-court-theme/
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/cp -R .gitignore 404.php README.md archive-room.php assets footer.php front-page.php functions.php header.php inc index.php page-about.php page-accessibility.php page-contact.php page-functions.php page-menus.php page-privacy-policy.php page-rooms.php page-terms-conditions.php page-weddings.php page.php single-room.php style.css template-parts $DEPLOYPATH
