@@ -1,0 +1,900 @@
+/**
+ * Ashton Court Hotel - Responsive Stylesheet
+ * Mobile-first breakpoints with premium experience at all sizes
+ */
+
+/* ============================================
+   Breakpoint Reference:
+   - Mobile: 0 - 479px
+   - Mobile Large: 480px - 767px
+   - Tablet: 768px - 1023px
+   - Desktop: 1024px - 1279px
+   - Desktop Large: 1280px - 1535px
+   - Desktop XL: 1536px+
+   ============================================ */
+
+/* ============================================
+   Extra Small Devices (< 480px)
+   ============================================ */
+@media (max-width: 479px) {
+    :root {
+        --container-padding: 1.25rem;
+        --space-section: 3rem;
+        --header-height: 80px;
+        --header-height-scrolled: 64px;
+    }
+    
+    /* Typography adjustments */
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+    
+    .hero-headline .headline-top {
+        font-size: clamp(2.5rem, 10vw, 3.5rem);
+    }
+    
+    .hero-headline .headline-accent {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+    }
+    
+    .hero-description {
+        font-size: var(--text-base);
+        padding: 0 var(--space-md);
+    }
+    
+    .hero-eyebrow {
+        gap: var(--space-md);
+    }
+    
+    .eyebrow-line {
+        width: 30px;
+    }
+    
+    .eyebrow-text {
+        font-size: 9px;
+        letter-spacing: 0.2em;
+    }
+    
+    .section-title {
+        font-size: clamp(1.75rem, 6vw, 2.25rem);
+    }
+    
+    /* Hero - switch to flex flow instead of absolute positioning */
+    .hero-section,
+    .hero-section.hero-cinematic,
+    .hero-section.hero-cinematic.hero-elegant {
+        min-height: auto !important;
+        height: auto !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 0;
+    }
+    
+    .hero-content {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        padding: calc(var(--header-height, 80px) + 2rem) var(--space-md) 1.5rem !important;
+        z-index: 10;
+    }
+    
+    .hero-inner {
+        max-width: 100%;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+    }
+    
+    .hero-actions .btn {
+        width: 100%;
+    }
+    
+    .hero-scroll-indicator,
+    .hero-scroll {
+        display: none;
+    }
+    
+    .hero-floating-stats {
+        display: none;
+    }
+    
+    /* Booking Widget Mobile - relative flow */
+    .hero-booking-widget {
+        position: relative !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        padding: 0 var(--space-md);
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Background must cover the flex content */
+    .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    /* Features Strip */
+    .features-strip-inner {
+        gap: var(--space-lg) var(--space-xl);
+        justify-content: space-around;
+    }
+    
+    .feature-item {
+        padding: var(--space-sm);
+        flex: 0 0 calc(33.33% - 1rem);
+    }
+    
+    .feature-item svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .features-strip .feature-item span {
+        font-size: 8px;
+        letter-spacing: 0.1em;
+    }
+    
+    /* Mobile Menu - fix overlap and scrolling */
+    .mobile-menu-inner {
+        justify-content: flex-start;
+        padding-top: calc(var(--header-height, 80px) + 1.5rem);
+        padding-bottom: 2rem;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .mobile-nav-menu > li > a {
+        font-size: var(--text-2xl);
+        padding: var(--space-xs) 0;
+    }
+    
+    .mobile-nav-menu .sub-menu a {
+        font-size: var(--text-base);
+        padding: 0.25rem 0;
+    }
+    
+    .mobile-nav-menu {
+        gap: var(--space-sm);
+    }
+    
+    .booking-bar-inner {
+        flex-direction: column;
+        padding: var(--space-md);
+        gap: 0;
+    }
+    
+    .booking-field {
+        padding: var(--space-md);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .booking-field:last-of-type {
+        border-bottom: none;
+    }
+    
+    .booking-divider {
+        display: none;
+    }
+    
+    .booking-field-select::after {
+        right: var(--space-md);
+        bottom: calc(var(--space-md) + 4px);
+    }
+    
+    .booking-submit {
+        width: 100%;
+        padding: var(--space-lg);
+        margin-top: var(--space-sm);
+        border-radius: var(--radius-md);
+    }
+    
+    .booking-price-hint {
+        flex-direction: column;
+        gap: var(--space-xs);
+        font-size: var(--text-xs);
+    }
+    
+    .booking-price-hint .separator {
+        display: none;
+    }
+    
+    /* Buttons */
+    .btn-large {
+        padding: 1rem 1.5rem;
+        font-size: var(--text-xs);
+    }
+    
+    /* Header */
+    .site-header {
+        height: var(--header-height);
+    }
+    
+    .site-header.scrolled {
+        height: var(--header-height-scrolled);
+    }
+    
+    .logo-image {
+        height: 50px;
+    }
+    
+    .site-header.scrolled .logo-image {
+        height: 40px;
+    }
+    
+    .btn-book-header {
+        padding: 0.625rem 1rem;
+        font-size: 0.625rem;
+    }
+    
+    .header-phone .phone-text {
+        display: none;
+    }
+    
+    /* Cards */
+    .room-card-content {
+        padding: var(--space-lg);
+    }
+    
+    .room-card-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-md);
+    }
+    
+    /* Testimonials */
+    .testimonial-card {
+        padding: var(--space-lg);
+    }
+    
+    /* Experience Cards */
+    .experience-card {
+        padding: var(--space-lg);
+    }
+    
+    /* Booking Modal */
+    .booking-modal-content {
+        padding: var(--space-2xl) var(--space-lg);
+    }
+    
+    .booking-title {
+        font-size: var(--text-2xl);
+    }
+    
+    /* Footer */
+    .footer-cta {
+        padding: var(--space-3xl) 0;
+    }
+    
+    .footer-cta .cta-title {
+        font-size: var(--text-2xl);
+    }
+    
+    .footer-main {
+        padding: var(--space-3xl) 0;
+    }
+    
+    .footer-bottom-inner {
+        gap: var(--space-lg);
+    }
+    
+    .footer-legal {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-md);
+    }
+    
+    .footer-cta-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .footer-grid-new {
+        gap: var(--space-2xl);
+        text-align: center;
+    }
+    
+    .footer-bottom-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ============================================
+   Small Devices (480px - 767px)
+   ============================================ */
+@media (min-width: 480px) and (max-width: 767px) {
+    :root {
+        --container-padding: 1.5rem;
+        --header-height: 90px;
+        --header-height-scrolled: 70px;
+    }
+    
+    /* Hero - flex flow */
+    .hero-section,
+    .hero-section.hero-cinematic,
+    .hero-section.hero-cinematic.hero-elegant {
+        min-height: auto !important;
+        height: auto !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    
+    .hero-content {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        padding: calc(var(--header-height, 90px) + 2.5rem) var(--container-padding) 1.5rem !important;
+        z-index: 10;
+    }
+    
+    .hero-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .hero-floating-stats {
+        display: none;
+    }
+    
+    .hero-scroll {
+        display: none;
+    }
+    
+    /* Booking Widget - relative flow */
+    .hero-booking-widget {
+        position: relative !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu-inner {
+        justify-content: flex-start;
+        padding-top: calc(var(--header-height, 90px) + 1.5rem);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .mobile-nav-menu > li > a {
+        font-size: var(--text-2xl);
+        padding: var(--space-xs) 0;
+    }
+    
+    .mobile-nav-menu .sub-menu a {
+        font-size: var(--text-base);
+    }
+    
+    .booking-bar-inner {
+        flex-wrap: wrap;
+    }
+    
+    .booking-field {
+        flex: 1 1 45%;
+        min-width: 140px;
+    }
+    
+    .booking-submit {
+        flex: 1 1 100%;
+        margin-top: var(--space-sm);
+        border-radius: 0 0 var(--radius-md) var(--radius-md);
+    }
+    
+    /* Cards grid */
+    .rooms-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Experience section */
+    .experience-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   Tablet (768px - 1023px)
+   ============================================ */
+@media (min-width: 768px) and (max-width: 1023px) {
+    :root {
+        --container-padding: 2rem;
+    }
+    
+    /* Navigation */
+    .main-navigation {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    /* Hero - flex flow on tablet */
+    .hero-section,
+    .hero-section.hero-cinematic,
+    .hero-section.hero-cinematic.hero-elegant {
+        min-height: auto !important;
+        height: auto !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    
+    .hero-stats {
+        display: none;
+    }
+    
+    .hero-content {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        padding: calc(var(--header-height, 120px) + 3rem) var(--container-padding) 2rem !important;
+        z-index: 10;
+    }
+    
+    .hero-floating-stats {
+        display: none;
+    }
+    
+    /* Booking Widget Tablet - relative flow */
+    .hero-booking-widget {
+        position: relative !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        margin-bottom: 2.5rem;
+    }
+    
+    .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    /* Mobile Menu on tablet */
+    .mobile-menu-inner {
+        justify-content: flex-start;
+        padding-top: calc(var(--header-height, 120px) + 2rem);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .booking-bar-inner {
+        flex-wrap: nowrap;
+    }
+    
+    .booking-field {
+        padding: var(--space-md) var(--space-lg);
+    }
+    
+    .booking-field label span {
+        display: none;
+    }
+    
+    .booking-submit {
+        padding: var(--space-lg) var(--space-xl);
+    }
+    
+    .booking-submit span {
+        display: none;
+    }
+    
+    /* Essence section */
+    .essence-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .essence-images {
+        height: 450px;
+        order: -1;
+    }
+    
+    /* Experience section */
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .experience-header {
+        position: static;
+        margin-bottom: var(--space-2xl);
+    }
+    
+    /* Location section */
+    .location-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .location-map {
+        min-height: 350px;
+    }
+    
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-brand {
+        grid-column: span 2;
+    }
+}
+
+/* ============================================
+   Desktop (1024px+)
+   ============================================ */
+@media (min-width: 1024px) {
+    /* Ensure desktop navigation is visible */
+    .main-navigation {
+        display: block;
+    }
+    
+    .menu-toggle {
+        display: none;
+    }
+    
+    /* Hero - restore absolute positioning for desktop */
+    .hero-section,
+    .hero-section.hero-cinematic,
+    .hero-section.hero-cinematic.hero-elegant {
+        min-height: 100vh !important;
+        height: auto !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .hero-cinematic {
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
+    }
+    
+    .hero-content {
+        position: absolute !important;
+        top: 42% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 100% !important;
+        text-align: center;
+        padding: 0 var(--container-padding) !important;
+    }
+    
+    .hero-booking-widget {
+        position: absolute !important;
+        bottom: 115px !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+    
+    /* Hero stats visible */
+    .hero-stats {
+        display: flex;
+    }
+    
+    /* Two column layouts */
+    .essence-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .experience-grid {
+        grid-template-columns: 1fr 2fr;
+    }
+    
+    .location-grid {
+        grid-template-columns: 1fr 1.5fr;
+    }
+    
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    }
+}
+
+/* ============================================
+   Large Desktop (1280px+)
+   ============================================ */
+@media (min-width: 1280px) {
+    :root {
+        --container-padding: 3rem;
+    }
+    
+    /* Larger spacing */
+    .essence-grid {
+        gap: var(--space-5xl);
+    }
+    
+    .experience-grid {
+        gap: var(--space-5xl);
+    }
+    
+    /* Wider content areas */
+    .hero-inner {
+        max-width: 1000px;
+    }
+    
+    .panoramic-quote p {
+        font-size: var(--text-5xl);
+    }
+}
+
+/* ============================================
+   Extra Large Desktop (1536px+)
+   ============================================ */
+@media (min-width: 1536px) {
+    :root {
+        --container-max: 1600px;
+    }
+    
+    /* Even larger typography for big screens */
+    .hero-title {
+        font-size: clamp(4rem, 6vw, 7rem);
+    }
+    
+    /* More breathing room */
+    .section-padding {
+        padding-top: calc(var(--space-section) * 1.25);
+        padding-bottom: calc(var(--space-section) * 1.25);
+    }
+}
+
+/* ============================================
+   Height-based adjustments
+   ============================================ */
+
+/* Short screens */
+@media (max-height: 600px) {
+    .hero-section {
+        min-height: auto;
+        padding-top: calc(var(--header-height) + var(--space-3xl));
+        padding-bottom: var(--space-3xl);
+    }
+    
+    .hero-scroll-indicator {
+        display: none;
+    }
+    
+    .hero-stats {
+        position: static;
+        margin-top: var(--space-2xl);
+    }
+}
+
+/* Tall screens - only apply on desktop where absolute positioning is used */
+@media (min-height: 900px) and (min-width: 1024px) {
+    .hero-section {
+        min-height: 100vh;
+    }
+    
+    .hero-content {
+        padding-top: calc(var(--header-height) + var(--space-5xl));
+    }
+}
+
+/* ============================================
+   Landscape mobile
+   ============================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-section {
+        min-height: auto;
+        padding: var(--space-3xl) 0;
+        padding-top: calc(var(--header-height) + var(--space-2xl));
+    }
+    
+    .hero-title {
+        font-size: var(--text-3xl);
+    }
+    
+    .hero-subtitle {
+        display: none;
+    }
+    
+    .hero-scroll-indicator {
+        display: none;
+    }
+    
+    .mobile-menu-inner {
+        padding-top: var(--space-2xl);
+    }
+    
+    .mobile-nav-menu > li > a {
+        font-size: var(--text-xl);
+        padding: var(--space-xs) 0;
+    }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+    /* Hide interactive elements */
+    .site-header,
+    .mobile-menu-overlay,
+    .booking-modal,
+    .loading-screen,
+    .custom-cursor,
+    .hero-scroll-indicator,
+    .footer-cta,
+    .btn {
+        display: none !important;
+    }
+    
+    /* Reset animations */
+    [data-animate] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    /* Ensure content is visible */
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .site-main {
+        padding-top: 0;
+    }
+    
+    .hero-section {
+        min-height: auto;
+        padding: 2rem 0;
+    }
+    
+    .hero-background {
+        display: none;
+    }
+    
+    .hero-title,
+    .hero-subtitle {
+        color: black;
+    }
+    
+    /* Page breaks */
+    .section-padding {
+        page-break-inside: avoid;
+    }
+    
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+    
+    /* Show URLs for links */
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+    }
+    
+    a[href^="#"]::after,
+    a[href^="javascript:"]::after {
+        content: "";
+    }
+}
+
+/* ============================================
+   High DPI / Retina adjustments
+   ============================================ */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Thinner borders for retina */
+    .room-card-footer,
+    .testimonial-author,
+    .footer-main,
+    .booking-modal-footer {
+        border-width: 0.5px;
+    }
+}
+
+/* ============================================
+   Hover capability detection
+   ============================================ */
+
+/* Devices with hover capability (desktop) */
+@media (hover: hover) and (pointer: fine) {
+    /* Enable hover effects */
+    .room-card:hover {
+        transform: translateY(-4px);
+    }
+    
+    .experience-card:hover {
+        background-color: var(--color-bg);
+    }
+    
+    /* Custom cursor */
+    .custom-cursor {
+        display: block;
+    }
+}
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+    /* Disable hover-dependent effects */
+    .room-card-overlay {
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    .room-card-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+    
+    /* Make entire card clickable */
+    .room-card {
+        position: relative;
+    }
+    
+    /* No custom cursor on touch */
+    .custom-cursor {
+        display: none !important;
+    }
+    
+    body {
+        cursor: auto;
+    }
+}
+
+
+/* ============================================
+   Container Query Support (Future-proof)
+   ============================================ */
+@supports (container-type: inline-size) {
+    .rooms-grid {
+        container-type: inline-size;
+    }
+    
+    @container (min-width: 600px) {
+        .room-card {
+            /* Container-based responsive styles */
+        }
+    }
+}
+
+/* ============================================
+   Safe Area Insets (Notch support)
+   ============================================ */
+@supports (padding: max(0px)) {
+    .site-header {
+        padding-left: max(var(--container-padding), env(safe-area-inset-left));
+        padding-right: max(var(--container-padding), env(safe-area-inset-right));
+    }
+    
+    .container {
+        padding-left: max(var(--container-padding), env(safe-area-inset-left));
+        padding-right: max(var(--container-padding), env(safe-area-inset-right));
+    }
+    
+    .footer-bottom {
+        padding-bottom: max(var(--space-xl), env(safe-area-inset-bottom));
+    }
+    
+    .mobile-menu-inner {
+        padding-left: max(var(--container-padding), env(safe-area-inset-left));
+        padding-right: max(var(--container-padding), env(safe-area-inset-right));
+        padding-bottom: max(var(--space-3xl), env(safe-area-inset-bottom));
+    }
+}

@@ -1,0 +1,695 @@
+/**
+ * Ashton Court Hotel - Animations Stylesheet
+ * Cinematic, refined, and purposeful animations
+ */
+
+/* ============================================
+   Animation Base States
+   ============================================ */
+
+/* Fade Up Animation */
+[data-animate="fade-up"] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--duration-slow) var(--ease-out),
+                transform var(--duration-slow) var(--ease-out);
+}
+
+[data-animate="fade-up"].animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fade Down Animation */
+[data-animate="fade-down"] {
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: opacity var(--duration-slow) var(--ease-out),
+                transform var(--duration-slow) var(--ease-out);
+}
+
+[data-animate="fade-down"].animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fade Left Animation */
+[data-animate="fade-left"] {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity var(--duration-slow) var(--ease-out),
+                transform var(--duration-slow) var(--ease-out);
+}
+
+[data-animate="fade-left"].animated {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Fade Right Animation */
+[data-animate="fade-right"] {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity var(--duration-slow) var(--ease-out),
+                transform var(--duration-slow) var(--ease-out);
+}
+
+[data-animate="fade-right"].animated {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Fade In Animation */
+[data-animate="fade-in"] {
+    opacity: 0;
+    transition: opacity var(--duration-slow) var(--ease-out);
+}
+
+[data-animate="fade-in"].animated {
+    opacity: 1;
+}
+
+/* Scale Up Animation */
+[data-animate="scale-up"] {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity var(--duration-slow) var(--ease-out),
+                transform var(--duration-slow) var(--ease-out);
+}
+
+[data-animate="scale-up"].animated {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Image Reveal Animation */
+[data-animate="image-reveal"] {
+    position: relative;
+    overflow: hidden;
+}
+
+[data-animate="image-reveal"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg);
+    z-index: 1;
+    transform: scaleX(1);
+    transform-origin: right;
+    transition: transform var(--duration-slower) var(--ease-out);
+}
+
+[data-animate="image-reveal"].animated::before {
+    transform: scaleX(0);
+}
+
+[data-animate="image-reveal"] img {
+    transform: scale(1.2);
+    transition: transform var(--duration-slower) var(--ease-out) 0.2s;
+}
+
+[data-animate="image-reveal"].animated img {
+    transform: scale(1);
+}
+
+/* ============================================
+   Staggered Animation Delays
+   ============================================ */
+[data-delay="50"] { transition-delay: 0.05s !important; }
+[data-delay="100"] { transition-delay: 0.1s !important; }
+[data-delay="150"] { transition-delay: 0.15s !important; }
+[data-delay="200"] { transition-delay: 0.2s !important; }
+[data-delay="250"] { transition-delay: 0.25s !important; }
+[data-delay="300"] { transition-delay: 0.3s !important; }
+[data-delay="350"] { transition-delay: 0.35s !important; }
+[data-delay="400"] { transition-delay: 0.4s !important; }
+[data-delay="450"] { transition-delay: 0.45s !important; }
+[data-delay="500"] { transition-delay: 0.5s !important; }
+[data-delay="600"] { transition-delay: 0.6s !important; }
+[data-delay="700"] { transition-delay: 0.7s !important; }
+[data-delay="800"] { transition-delay: 0.8s !important; }
+
+/* ============================================
+   Hero Specific Animations
+   ============================================ */
+
+/* Legacy Hero Elements */
+.hero-section .hero-location,
+.hero-section .hero-title,
+.hero-section .hero-subtitle,
+.hero-section .hero-actions,
+.hero-section .hero-scroll-indicator,
+.hero-section .hero-stats {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.page-loaded .hero-section .hero-location {
+    animation: heroFadeUp 1s var(--ease-out) 0.5s forwards;
+}
+
+.page-loaded .hero-section .hero-title {
+    animation: heroFadeUp 1s var(--ease-out) 0.7s forwards;
+}
+
+.page-loaded .hero-section .hero-subtitle {
+    animation: heroFadeUp 1s var(--ease-out) 0.9s forwards;
+}
+
+.page-loaded .hero-section .hero-actions {
+    animation: heroFadeUp 1s var(--ease-out) 1.1s forwards;
+}
+
+.page-loaded .hero-section .hero-scroll-indicator {
+    animation: heroFadeUp 1s var(--ease-out) 1.4s forwards;
+}
+
+.page-loaded .hero-section .hero-stats {
+    animation: heroFadeUp 1s var(--ease-out) 1.3s forwards;
+}
+
+/* Cinematic Hero Elements - Auto Animate on Load */
+.hero-cinematic .hero-badge {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: heroCinematicBadge 1s var(--ease-out) 0.3s forwards;
+}
+
+.hero-cinematic .hero-title-main .title-line {
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.hero-cinematic .hero-title-main .title-line-1 {
+    animation: heroCinematicTitle 1.2s var(--ease-out) 0.5s forwards;
+}
+
+.hero-cinematic .hero-title-main .title-line-2 {
+    animation: heroCinematicTitle 1.2s var(--ease-out) 0.7s forwards;
+}
+
+.hero-cinematic .hero-title-main .title-line-3 {
+    animation: heroCinematicTitle 1.2s var(--ease-out) 0.9s forwards;
+}
+
+.hero-cinematic .hero-tagline {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroFadeUp 1s var(--ease-out) 1.1s forwards;
+}
+
+.hero-cinematic .hero-booking-widget {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: heroBookingSlide 1s var(--ease-out) 1.4s forwards;
+}
+
+.hero-cinematic .hero-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroFadeUp 1s var(--ease-out) 1.8s forwards;
+}
+
+.hero-cinematic .floating-stat {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+.hero-cinematic .floating-stat:nth-child(1) {
+    animation: heroStatSlide 0.8s var(--ease-out) 2s forwards;
+}
+
+.hero-cinematic .floating-stat:nth-child(2) {
+    animation: heroStatSlide 0.8s var(--ease-out) 2.2s forwards;
+}
+
+@keyframes heroCinematicBadge {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroCinematicTitle {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroBookingSlide {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroStatSlide {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero Title Letter Animation (optional - for GSAP SplitText) */
+.hero-title .char {
+    opacity: 0;
+    transform: translateY(50px) rotate(5deg);
+    display: inline-block;
+}
+
+.hero-title .word {
+    display: inline-block;
+    margin-right: 0.25em;
+}
+
+/* ============================================
+   Button Hover Animations
+   ============================================ */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: left 0.5s var(--ease-smooth);
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+/* Magnetic Button Effect (requires JS) */
+.btn.magnetic {
+    transition: transform 0.3s var(--ease-out);
+}
+
+/* ============================================
+   Link Hover Animations
+   ============================================ */
+.link-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* ============================================
+   Image Hover Effects
+   ============================================ */
+.image-zoom {
+    overflow: hidden;
+}
+
+.image-zoom img {
+    transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.image-zoom:hover img {
+    transform: scale(1.05);
+}
+
+.image-parallax {
+    overflow: hidden;
+}
+
+.image-parallax img {
+    will-change: transform;
+}
+
+/* ============================================
+   Card Hover Animations
+   ============================================ */
+.card-lift {
+    transition: transform var(--duration-normal) var(--ease-out),
+                box-shadow var(--duration-normal) var(--ease-out);
+}
+
+.card-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+/* ============================================
+   Loading Screen Animations
+   ============================================ */
+.loading-screen.exiting .loading-logo {
+    animation: loadingLogoExit 0.5s var(--ease-in-out) forwards;
+}
+
+.loading-screen.exiting .loading-bar {
+    animation: loadingBarExit 0.5s var(--ease-in-out) 0.1s forwards;
+}
+
+@keyframes loadingLogoExit {
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes loadingBarExit {
+    to {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+}
+
+/* ============================================
+   Menu Animations
+   ============================================ */
+.mobile-menu-overlay {
+    clip-path: circle(0% at calc(100% - 40px) 40px);
+    transition: clip-path 0.8s var(--ease-out);
+}
+
+.mobile-menu-overlay.active {
+    clip-path: circle(150% at calc(100% - 40px) 40px);
+}
+
+/* Alternative: Slide animation */
+.mobile-menu-overlay.slide-mode {
+    clip-path: none;
+    transform: translateX(100%);
+    transition: transform 0.6s var(--ease-out);
+}
+
+.mobile-menu-overlay.slide-mode.active {
+    transform: translateX(0);
+}
+
+/* ============================================
+   Modal Animations
+   ============================================ */
+.booking-modal {
+    backdrop-filter: blur(0px);
+}
+
+.booking-modal.active {
+    backdrop-filter: blur(4px);
+}
+
+.booking-modal-container {
+    transform: translateY(30px) scale(0.98);
+    transition: transform var(--duration-normal) var(--ease-out),
+                opacity var(--duration-normal) var(--ease-out);
+}
+
+.booking-modal.active .booking-modal-container {
+    transform: translateY(0) scale(1);
+}
+
+/* ============================================
+   Scroll-Based Parallax (CSS only, for simple effects)
+   ============================================ */
+@supports (animation-timeline: scroll()) {
+    .parallax-slow {
+        animation: parallaxSlow linear;
+        animation-timeline: scroll();
+        animation-range: entry 0% cover 100%;
+    }
+    
+    @keyframes parallaxSlow {
+        from { transform: translateY(0); }
+        to { transform: translateY(-50px); }
+    }
+    
+    .parallax-fast {
+        animation: parallaxFast linear;
+        animation-timeline: scroll();
+        animation-range: entry 0% cover 100%;
+    }
+    
+    @keyframes parallaxFast {
+        from { transform: translateY(0); }
+        to { transform: translateY(-100px); }
+    }
+}
+
+/* ============================================
+   Text Reveal Animations
+   ============================================ */
+.text-reveal {
+    overflow: hidden;
+}
+
+.text-reveal-inner {
+    display: block;
+    transform: translateY(100%);
+    transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.text-reveal.animated .text-reveal-inner {
+    transform: translateY(0);
+}
+
+/* Split lines animation */
+.split-lines .line {
+    overflow: hidden;
+}
+
+.split-lines .line-inner {
+    display: block;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.8s var(--ease-out),
+                opacity 0.8s var(--ease-out);
+}
+
+.split-lines.animated .line-inner {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Stagger lines */
+.split-lines.animated .line:nth-child(1) .line-inner { transition-delay: 0s; }
+.split-lines.animated .line:nth-child(2) .line-inner { transition-delay: 0.1s; }
+.split-lines.animated .line:nth-child(3) .line-inner { transition-delay: 0.2s; }
+.split-lines.animated .line:nth-child(4) .line-inner { transition-delay: 0.3s; }
+.split-lines.animated .line:nth-child(5) .line-inner { transition-delay: 0.4s; }
+
+/* ============================================
+   Counter Animations
+   ============================================ */
+.counter {
+    font-variant-numeric: tabular-nums;
+}
+
+/* ============================================
+   Cursor Animations
+   ============================================ */
+.custom-cursor {
+    transition: opacity 0.3s var(--ease-smooth);
+}
+
+.custom-cursor.hidden {
+    opacity: 0;
+}
+
+.custom-cursor.text-mode .cursor-circle {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.9);
+    mix-blend-mode: difference;
+}
+
+.custom-cursor.text-mode .cursor-dot {
+    opacity: 0;
+}
+
+/* ============================================
+   Form Focus Animations
+   ============================================ */
+.form-group {
+    position: relative;
+}
+
+.form-group.floating-label label {
+    position: absolute;
+    left: var(--space-md);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    pointer-events: none;
+    transition: all 0.3s var(--ease-out);
+}
+
+.form-group.floating-label input:focus ~ label,
+.form-group.floating-label input:not(:placeholder-shown) ~ label {
+    top: 0;
+    transform: translateY(-50%);
+    font-size: var(--text-xs);
+    background-color: var(--color-bg);
+    padding: 0 var(--space-xs);
+    color: var(--color-accent);
+}
+
+/* ============================================
+   Page Transition Animations
+   ============================================ */
+.page-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg);
+    z-index: calc(var(--z-loading) - 1);
+    transform: translateY(100%);
+    transition: transform 0.6s var(--ease-in-out);
+}
+
+.page-transition-overlay.active {
+    transform: translateY(0);
+}
+
+.page-transition-overlay.exit {
+    transform: translateY(-100%);
+}
+
+/* ============================================
+   Marquee Animation
+   ============================================ */
+.marquee {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+}
+
+.marquee-content {
+    display: flex;
+    animation: marquee 30s linear infinite;
+}
+
+.marquee-content span {
+    white-space: nowrap;
+    padding-right: var(--space-4xl);
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.marquee:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+/* ============================================
+   Skeleton Loading Animation
+   ============================================ */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--color-bg-alt) 25%,
+        var(--color-bg) 50%,
+        var(--color-bg-alt) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+}
+
+/* ============================================
+   Accessibility: Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    [data-animate] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    .hero-section .hero-location,
+    .hero-section .hero-title,
+    .hero-section .hero-subtitle,
+    .hero-section .hero-actions,
+    .hero-section .hero-scroll-indicator,
+    .hero-section .hero-stats {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+    
+    .loading-screen {
+        display: none !important;
+    }
+    
+    .custom-cursor {
+        display: none !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
