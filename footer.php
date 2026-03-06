@@ -121,5 +121,6 @@
 
 <?php wp_footer(); ?>
 
+<!-- deploy-test: ok -->
 </body>
 </html>
